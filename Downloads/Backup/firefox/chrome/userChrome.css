@@ -1,0 +1,58 @@
+/** 颜色变量
+var(--button-bgcolor)
+var(--button-hover-bgcolor)
+var(--button-active-bgcolor)
+var(--toolbar-non-lwt-bgcolor)
+*/
+
+/*标签栏*/
+#titlebar {
+  display: none!important;
+}
+
+/*侧边栏*/
+#sidebar-splitter {
+  width: 1px!important;
+}
+#sidebar-header {
+  background-color: var(--button-bgcolor);
+  display: none;
+}
+
+/*书签居中*/
+#PlacesToolbarItems {
+  justify-content: center;
+}
+
+/*地址栏居中*/
+#urlbar-input{
+  text-align: center!important;
+}
+#urlbar[focused="true"] #urlbar-input{
+  text-align: left!important;
+}
+
+#urlbar-container {
+  margin-left: 200px !important;
+  margin-right: 200px !important;
+}
+
+
+/*隐藏地址栏图标*/
+#pageAction-urlbar-tab-stash_condordes_net,
+#QRCodeGeneratePageAction{
+  display: none;
+}
+
+/*地址栏圆角*/
+#urlbar-background,#urlbar,#identity-icon-box {
+  border-radius: 20px !important;
+}
+#urlbar-background,#urlbar {
+  margin: 2px 0px !important;
+}
+
+/*文件夹图标*/
+.bookmark-item[container] {
+	list-style-image: url("./icons/bookmark-folder.svg") !important;
+}

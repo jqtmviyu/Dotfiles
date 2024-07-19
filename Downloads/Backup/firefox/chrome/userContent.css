@@ -1,0 +1,6 @@
+@-moz-document url(moz-extension://d1cd20d2-0800-4e25-b505-086ff8f72b3b/index.html)
+{
+     .row>.icon  {
+          display:none;
+     }
+}

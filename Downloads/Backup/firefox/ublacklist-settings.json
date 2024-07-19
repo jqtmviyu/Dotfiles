@@ -1,0 +1,28 @@
+{
+  "blacklist": "*://*/so.php\n*://*/so.php?s=*\n*://*/cha.php?s=*\n*://*/list.php?s=*\n*://*/?s=*\n*://*/so/*\ntitle/小.(百科|知识)网/\ntitle/.* - 小.(百科|知识)网/\n*://*.csdn.net/*\n*://*.csdn.com/*\n*://*.tinkink.net/*\n*://*.volcengine.com/*\n*://developer.huawei.com/*",
+  "blockColor": "default",
+  "blockWholeSite": true,
+  "dialogTheme": "default",
+  "enablePathDepth": false,
+  "hideBlockLinks": false,
+  "hideControl": false,
+  "highlightColors": [
+    "#ddeeff"
+  ],
+  "linkColor": "default",
+  "skipBlockDialog": false,
+  "subscriptions": [
+    {
+      "name": "中文搜索结果黑名单",
+      "url": "https://raw.githubusercontent.com/cobaltdisco/Google-Chinese-Results-Blocklist/master/uBlacklist_subscription.txt",
+      "enabled": true
+    }
+  ],
+  "syncAppearance": true,
+  "syncBlocklist": true,
+  "syncGeneral": true,
+  "syncInterval": 120,
+  "syncSubscriptions": true,
+  "updateInterval": 1440,
+  "version": "8.8.2"
+}
