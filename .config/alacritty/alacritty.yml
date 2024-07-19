@@ -1,0 +1,177 @@
+# 导入额外的配置文件
+#
+# 按照列表顺序进行加载，如果文件不存在，那么会跳过。如果和先前导入的配置存在相同的字段，那么会被替换。
+# 所有的 import 路径要么使用以 `/` 开头的绝对路径，要么以用户的 HOME 目录开头 `~/`
+# import:
+#  - /path/to/alacritty.yml
+
+# 是否启用配置热更新
+live_config_reload: true
+
+# 随终端打开时启动的 Shell
+# shell:
+#  program: /bin/zsh
+#  args:
+#    - -l # login
+#    - -c # command
+#    #- 'tmux new-session -A -D -s main'
+#    - 'tmux new-window -c "$PWD" && open -a "Alacritty" || tmux new-session -A -D -s main -c "$PWD"'
+
+# `env` 下的所有键值对将会被添加为环境变量
+#env:
+#  TERM: xterm-256color
+
+# Colors (Aura Theme)
+colors:
+  # Default colors
+  primary:
+    background: '#15141b'
+    foreground: '#edecee'
+
+  cursor:
+    cursor: '#a277ff'
+
+  selection:
+    text: CellForeground
+    background: '#29263c'
+
+  # Normal colors
+  normal:
+    black: '#110f18'
+    red: '#ff6767'
+    green: '#61ffca'
+    yellow: '#ffca85'
+    blue: '#a277ff'
+    magenta: '#a277ff'
+    cyan: '#61ffca'
+    white: '#edecee'
+
+  # Bright colors
+  bright:
+    black: '#4d4d4d'
+    red: '#ff6767'
+    green: '#61ffca'
+    yellow: '#ffca85'
+    blue: '#a277ff'
+    magenta: '#a277ff'
+    cyan: '#61ffca'
+    white: '#edecee'
+
+  search:
+    matches:
+      foreground: '#000000'
+      background: '#ffffff'
+    focused_match:
+      foreground: '#ffffff'
+      background: '#9F7AF5'
+
+# 设置字体
+font:
+  normal:
+    family: 'Sarasa Term SC Nerd'
+    style: Regular
+  bold:
+    family: 'Sarasa Term SC Nerd'
+    style: Bold
+  italic:
+    family: 'Sarasa Term SC Nerd'
+    style: Italic
+  bold_italic:
+    family: 'Sarasa Term SC Nerd'
+    style: Bold Italic
+  size: 16.0
+  # 每个字符的间的字间距
+  offset:
+    x: 1
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+  AppleFontSmoothing: true
+
+mouse:
+  hide_when_typing: true
+
+# 窗口
+window:
+  opacity: 0.96
+  dynamic_padding: false
+  padding:
+    x: 10
+    y: 18
+  # 外边框
+  decorations: transparent # none/full transparent/buttonless(macos only)
+  # 终端显示的列和行的数量
+  dimensions:
+    columns: 100
+    lines: 25
+  position:
+    x: 700
+    y: 300
+
+scrolling:
+  # 回滚缓冲区中的最大行数,指定“0”将禁用滚动。
+  history: 100000
+  # 滚动行数
+  multiplier: 2
+
+cursor:
+  style:
+    #  - ▇ Block
+    #   - _ Underline
+    #   - | Beam
+    shape: Block
+    blinking: On
+  vi_mode_style:
+    shape: Block
+
+# 如果为‘true’，则使用亮色变体绘制粗体文本。
+draw_bold_text_with_bright_colors: false
+
+selection:
+  # 分割语义化单词的分隔符
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+  save_to_clipboard: true
+# - `action`: 执行预定义的操作
+#
+#   - ToggleViMode: 开启/关闭 Vi 模式
+#   - SearchForward: 向前搜索
+#   - SearchBackward: 向后搜索
+#   - Copy: 复制
+#   - Paste: 粘贴
+#   - IncreaseFontSize: 增加字号
+#   - DecreaseFontSize: 减小字号
+#   - ResetFontSize: 重置字号
+#   - ScrollPageUp: 向上翻一页
+#   - ScrollPageDown: 向下翻一页
+#   - ScrollHalfPageUp: 向上翻半页
+#   - ScrollHalfPageDown: 向下翻半页
+#   - ScrollLineUp: 向上滚动一行
+#   - ScrollLineDown: 向下滚动一行
+#   - ScrollToTop: 滚动到顶部
+#   - ScrollToBottom: 滚动到底部
+#   - ClearHistory: 清空滚动缓冲区
+#   - Hide: 隐藏窗口
+#   - Minimize: 最小化
+#   - Quit: 退出
+#   - ToggleFullscreen: 在全屏/当前模式下切换
+#   - SpawnNewInstance: 启动一个新的 Alacritty
+#   - ClearLogNotice: 清 UI 上的 warning 和 error 的 notice
+#   - ClearSelection: 清空当前选中
+#   - ReceiveChar: 不执行任何动作，将字符输入
+#   - None: 不执行任何动作，并且拦截掉
+
+key_bindings:
+  - { key: R, mods: Command, mode: ~Vi|~Search, chars: "\x0c" }
+  - { key: R, mods: Command, mode: ~Vi|~Search, action: ClearHistory }
+  - { key: H, mods: Command, action: Hide }
+  - { key: W, mods: Command, action: Quit }
+  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: T, mods: Command, action: CreateNewWindow }
+  #- { key: N, mods: Command, chars: "\x02\x63" } # tmux new-window
+  - { key: Back, action: ReceiveChar }
+  - { key: Back, mods: Command, chars: "\x15" } # Delete line
+  - { key: Left, mods: Command, chars: "\x01" } # Home
+  - { key: Right, mods: Command, chars: "\x05" } # End
+  - { key: Up, mods: Command, chars: "\x02" } # Page Up
+  - { key: Down, mods: Command, chars: "\x04" } # Page Down

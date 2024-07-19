@@ -1,0 +1,18 @@
+import:
+  - ~/.config/alacritty/alacritty.yml
+
+shell:
+  program: /bin/zsh
+  args:
+    - -l # login
+
+font:
+  size: 16.0
+
+window:
+  dimensions:
+    columns: 200
+    lines: 45
+
+key_bindings:
+  - { key: T, mods: Command, action: CreateNewWindow }
