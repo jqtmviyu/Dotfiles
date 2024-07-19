@@ -1,0 +1,147 @@
+# 导航
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# 移动窗口
+alt + shift - h : yabai -m window --warp west
+alt + shift - j : yabai -m window --warp south
+alt + shift - k : yabai -m window --warp north
+alt + shift - l : yabai -m window --warp east
+
+# 聚焦工作区
+alt - n : yabai -m space --focus next
+alt + shift - n : yabai -m space --focus prev
+alt - r : yabai -m space --focus recent
+
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+alt - 9 : yabai -m space --focus 9
+
+# 发送窗口到工作区
+# alt + shift - 1 : yabai -m window --space 1
+# alt + shift - 2 : yabai -m window --space 2
+# alt + shift - 3 : yabai -m window --space 3
+# alt + shift - 4 : yabai -m window --space 4
+# alt + shift - 5 : yabai -m window --space 5
+# alt + shift - 6 : yabai -m window --space 6
+# alt + shift - 7 : yabai -m window --space 7
+# alt + shift - 8 : yabai -m window --space 8
+# alt + shift - 9 : yabai -m window --space 9
+
+# 移动焦点容器到工作区
+# cmd + shift - n : yabai -m window --space next && yabai -m space --focus next
+# cmd + shift - p : yabai -m window --space prev && yabai -m space --focus prev
+# cmd + shift - l : yabai -m window --space last && yabai -m space --focus last
+
+alt + shift - 1 : yabai -m window --space 1 && yabai -m space --focus 1
+alt + shift - 2 : yabai -m window --space 2 && yabai -m space --focus 2
+alt + shift - 3 : yabai -m window --space 3 && yabai -m space --focus 3
+alt + shift - 4 : yabai -m window --space 4 && yabai -m space --focus 4
+alt + shift - 5 : yabai -m window --space 5 && yabai -m space --focus 5
+alt + shift - 6 : yabai -m window --space 6 && yabai -m space --focus 6
+alt + shift - 7 : yabai -m window --space 7 && yabai -m space --focus 7
+alt + shift - 8 : yabai -m window --space 8 && yabai -m space --focus 8
+alt + shift - 9 : yabai -m window --space 9 && yabai -m space --focus 9
+
+# 窗口调整大小
+alt + ctrl - h : \
+    yabai -m window --resize left:-20:0 ; \
+    yabai -m window --resize right:-20:0
+
+alt + ctrl - j : \
+    yabai -m window --resize bottom:0:20 ; \
+    yabai -m window --resize top:0:20
+
+alt + ctrl - k : \
+    yabai -m window --resize top:0:-20 ; \
+    yabai -m window --resize bottom:0:-20
+
+alt + ctrl - l : \
+    yabai -m window --resize right:20:0 ; \
+    yabai -m window --resize left:20:0
+
+# 窗口平均大小
+alt + ctrl - 0 : yabai -m space --balance
+
+# 启用/禁用当前工作区的间距
+alt + ctrl - g : yabai -m space --toggle padding ; yabai -m space --toggle gap
+
+# 旋转窗口顺时针和逆时针
+alt + ctrl - r : yabai -m space --rotate 90
+alt + ctrl - t : yabai -m space --rotate 270
+
+# 旋转在X轴和Y轴上
+alt + ctrl - x : yabai -m space --mirror x-axis
+alt + ctrl - y : yabai -m space --mirror y-axis
+
+# 设置焦点容器的插入点
+alt + shift + ctrl - h : yabai -m window --insert west
+alt + shift + ctrl - j : yabai -m window --insert south
+alt + shift + ctrl - k : yabai -m window --insert north
+alt + shift + ctrl - l : yabai -m window --insert east
+
+# 浮动/取消浮动窗口
+alt - space : yabai -m window --toggle float
+
+# 浮动并居中窗口
+alt - c : isfloat="$(yabai -m query --windows --window | jq --raw-output '.["is-floating"]')" ; \
+          $isfloat && yabai -m window --grid 4:4:1:1:2:2 || \
+          yabai -m window --toggle float && \
+          yabai -m window --grid 4:4:1:1:2:2
+
+# 切换窗口在所有工作区上显示
+alt - s : yabai -m window --toggle sticky
+
+# 切换窗口置顶(保持在其他窗口上)
+alt - t : yabai -m window --toggle topmost
+
+# 切换窗口全屏
+alt - f : yabai -m window --toggle zoom-fullscreen
+# alt + cmd - f : yabai -m window --toggle native-fullscreen # macos default shortcut
+
+# 切换窗口分割方式
+alt - g : yabai -m window --toggle split
+
+# 创建新工作区
+alt + ctrl - n : yabai -m space --create
+alt + ctrl - m : yabai -m space --destroy
+
+# 更改桌面布局
+alt + ctrl - f : yabai -m space --layout float
+alt + ctrl - b : yabai -m space --layout bsp
+
+# 销毁空的工作区
+alt + ctrl + cmd - w : echo "destroy empty spaces" ; \
+                      yabai -m query --spaces \
+                      | jq 'reverse | .[] | select((.windows | length) == 0) | .index' \
+                      | xargs -I{} yabai -m space {} --destroy
+
+# 重启 yabai
+alt + ctrl + cmd - r : osascript <<< \
+                      "display notification \"Restarting Yabai\" with title \"Yabai\"" ; \
+                      yabai --restart-service
+
+# 获取窗口信息并快速添加到 manageOff 列表
+alt + ctrl - i : json_text=$(yabai -m query --windows --window mouse | jq -r tostring | tr -d '{}"' | tr ',' '\n') ; \
+                appName=$(echo "$json_text" | sed -n 's/^app:\(.*\)/\1/p') ; \
+                result=$(osascript -e "display dialog \"$json_text\" buttons {\"Close\", \"manageOff\"} default button \"Close\"") ; \
+                echo "$result" | grep -q "manageOff" && \
+                perl -i -pe "s/manageOffApp\=\'\^\(/manageOffApp\=\'\^\($appName\|/g" ~/.config/yabai/yabairc && \
+                yabai -m rule --add app="$appName" manage=off
+
+# 打开应用
+# alt - return : osascript -e 'tell application "iTerm2" to create window with default profile command ""'
+# alt - return : osascript -e 'tell application "iTerm2" to tell current window to create tab with default profile'
+alt - return : open -a "kitty"
+alt + shift - space : open -a "Launchpad"
+alt - q : open -a "Google Chrome" && yabai -m space --focus 1
+alt - w : open -a "Visual Studio Code" && yabai -m space --focus 2
+alt - e : osascript -e 'tell application "System Events" to click UI element "Finder" of list 1 of application process "Dock"'
