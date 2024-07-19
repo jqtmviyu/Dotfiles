@@ -1,0 +1,164 @@
+/*Header BEGIN*/
+
+.markdown-preview-view h1::before, .HyperMD-header .cm-header-1::before{
+    content: 'h1';
+    position: absolute;
+    font-size: 12px;
+    color: var(--nav-item-color-active);
+    font-weight: 600;
+    width: auto;
+    left: -19px;
+    border: 1px solid;
+    padding: 0px 2px;
+    border-radius: 3px;
+    top: 1px;
+}
+
+.markdown-preview-view h2::before, .HyperMD-header .cm-header-2::before{
+    content: 'h2';
+    position: absolute;
+    font-size: 12px;
+    color: var(--nav-item-color-active);
+    font-weight: 600;
+    width: auto;
+    margin: 0;
+    left: -20px;
+    border: 1px solid;
+    padding: 0px 2px;
+    border-radius: 3px;
+    top: -4px;
+}
+
+.markdown-preview-view h3::before, .HyperMD-header .cm-header-3::before{
+    content: 'h3';
+    position: absolute;
+    font-size: 12px;
+    color: var(--nav-item-color-active);
+    font-weight: 600;
+    width: auto;
+    margin: 0;
+    left: -20px;
+    border: 1px solid;
+    padding: 0px 2px;
+    border-radius: 3px;
+    top: -6px;
+}
+
+.markdown-preview-view h4::before, .HyperMD-header .cm-header-4::before{
+    content: 'h4';
+    position: absolute;
+    font-size: 12px;
+    color: var(--nav-item-color-active);
+    font-weight: 600;
+    width: auto;
+    margin: 0;
+    left: -21px;
+    border: 1px solid;
+    padding: 0px 2px;
+    border-radius: 3px;
+    top: -8px;
+}
+
+.markdown-preview-view h5::before, .HyperMD-header .cm-header-5::before{
+    content: 'h5';
+    position: absolute;
+    font-size: 12px;
+    color: var(--nav-item-color-active);
+    font-weight: 600;
+    width: auto;
+    margin: 0;
+    left: -20px;
+    border: 1px solid;
+    padding: 0px 2px;
+    border-radius: 3px;
+    top: -11px;
+}
+
+.markdown-preview-view h6::before, .HyperMD-header .cm-header-6::before{
+    content: 'h6';
+    position: absolute;
+    font-size: 12px;
+    color: var(--nav-item-color-active);
+    font-weight: 600;
+    width: auto;
+    margin: 0;
+    left: -20px;
+    border: 1px solid;
+    padding: 0px 2px;
+    border-radius: 3px;
+    top: -11px;
+}
+/*Header END*/
+
+/* 加粗字体 */
+
+.cm-strong {
+    font-weight:800;
+}
+
+/* 列表样式 */
+.list-bullet:after {
+    width:6px;
+    height:6px;
+    background-color:var(--text-normal);
+}
+
+.cm-list-2 .list-bullet:after {
+    width:4px;
+    height:4px;
+    border-radius: 50%;
+    background: none; 
+    border: 1px solid var(--text-normal);
+}
+
+.cm-list-3 .list-bullet:after {
+    width:5px;
+    height:5px;
+    border-radius:0;
+    background-color:rgba(0, 0, 0, 0.5);
+}
+
+/*颜色*/
+/* 激活文件图标颜色 */
+.nav-file-title.is-active .obsidian-icon-folder-icon svg {
+    fill: var(--nav-item-color-active);
+}
+
+/*.HyperMD-header {
+    border-bottom:2px solid var(--nav-item-color-active);
+}*/
+
+.HyperMD-header-1 {
+    border:none;
+    text-align:center;
+}
+
+.cm-header-1 {
+    border-bottom:3px solid var(--nav-item-color-active);
+}
+
+.cm-comment {
+    color:#3c8123;
+}
+
+/*注释颜色*/
+.cm-string {
+    color: skyblue;
+}
+
+.HyperMD-codeblock {
+    border-left: 2px solid #ccc!important;
+    border-right: 2px solid #ccc!important;
+}
+
+.HyperMD-codeblock-begin {
+    border-top: 2px solid #ccc!important;
+}
+
+.HyperMD-codeblock-end {
+    border-bottom: 2px solid #ccc!important;
+}
+
+.HyperMD-codeblock-bg {
+    /*background-color: #f3f3f3!important;*/
+}
