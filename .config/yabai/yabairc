@@ -78,14 +78,21 @@ yabai -m rule --add app="^(AnyDsesk|Parallels Desktop|NetEaseMusic|QtScrcpy|网�
 
 # 不受到yabai平铺式的限制，之前怎么弹出来就怎么弹出来
 systemApp='^(System Preferences|System Information|Finder|Calendar|Mail|App Store|Activity Monitor|Dictionary)$'
-manageOffApp='^(Stream Music|Movist Pro|Infuse|NextChat|BotGem|ClashX Meta|Jan|Chatbox|macai|chat|Postman|GUI.for.SingBox|Hiddify|Typora|Anki|OBS Studio|qView|Squoosh|Just Focus|Tomito|IT Tools|Beyond Compare|Xplist|Platypus|XnConvert|ImageOptim|OrbStack|foobar2000|mpv|MacGPT|waifuExtension|DBeaver Community|Preview|Elephicon|LuLu|dev-tools|Android File Transfer|KeyboardHolder|PicList|Permute 3|kitty|Microsoft OneNote|START|IINA|Stats|LICEcap|electerm|KeePassXC|AppCleaner|Pixea|PictureView|App Cleaner & Uninstaller|NeatDownloadManager|Plash|Microsoft To Do|EuDic|qBittorrent|Sublime Text|Alfred Preferences|MacZip)$'
+manageOffApp='^(QuickRecorder|音流|Transmit|Stream Music|Movist Pro|Infuse|NextChat|Chatbox|Postman|Hiddify|Typora|Anki|OBS Studio|qView|Squoosh|Just Focus|Tomito|IT Tools|Beyond Compare|Xplist|Platypus|XnConvert|ImageOptim|OrbStack|foobar2000|mpv|MacGPT|waifuExtension|DBeaver Community|Preview|Elephicon|LuLu|dev-tools|Android File Transfer|KeyboardHolder|PicList|Permute 3|kitty|Microsoft OneNote|START|IINA|Stats|LICEcap|electerm|KeePassXC|AppCleaner|Pixea|PictureView|App Cleaner & Uninstaller|NeatDownloadManager|Plash|Microsoft To Do|EuDic|qBittorrent|Sublime Text|Alfred Preferences|MacZip)$'
 yabai -m rule --add app="${systemApp}|${manageOffApp}" manage=off
 
 yabai -m rule --add app="^(obsScene|OBSScene)$" sticky=on
 
+yabai -m rule --add app="^(PixPin)$" sticky=on
+
 # osascript <<< "display notification \"configuration loaded..\" with title \"Yabai\" "
 
 # 监听启动信号
+# grid=<rows>:<cols>:<start-x>:<start-y>:<width>:<height>
 yabai -m signal --add event=window_created \
     title="Brave 测试版（无痕）" \
-    action="yabai -m window --grid 4:4:1:1:2:2"
+    action="yabai -m window --grid 16:16:3:3:10:10"
+
+yabai -m signal --add event=window_created \
+    app="IINA" \
+    action="yabai -m window --grid 16:16:3:3:10:10"
