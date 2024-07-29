@@ -28,3 +28,14 @@ set ruler
 "共享剪切板
 set clipboard=unnamed
 
+" 禁止 c、cc、C、s、S、d、dd、D、x 和 X 命令写入寄存器
+nnoremap c "_c
+nnoremap cc "_cc
+nnoremap C "_C
+nnoremap s "_s
+nnoremap S "_S
+nnoremap d "_d
+nnoremap dd "_dd
+nnoremap D "_D
+nnoremap x "_x
+nnoremap X "_X
